@@ -5,8 +5,10 @@ import { useState } from "react"
 import { Modal } from "../modal/Modal"
 export default function Navbar({
     handleChange,
+    values,
 }: {
     handleChange: (args: { name: string; value: number | number[] }) => void
+    values: any
 }) {
     const [isModalOpen, setIsModelOpen] = useState(false)
 
@@ -38,6 +40,7 @@ export default function Navbar({
                 isOpen={isModalOpen}
                 onClose={onClose}
                 handleChange={handleChange}
+                values={values}
             />
         </div>
     )

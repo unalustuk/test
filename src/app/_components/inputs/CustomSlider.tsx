@@ -6,10 +6,12 @@ export default function CustomSlider({
     handleChange,
     name,
     max,
+    value,
 }: {
     handleChange: (args: { name: string; value: number | number[] }) => void
     name: string
     max: number
+    value: any
 }) {
     const handleSliderChange = (event: Event, newValue: number | number[]) => {
         handleChange({ name, value: newValue })

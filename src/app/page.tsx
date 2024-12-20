@@ -8,14 +8,32 @@ import { useState, useEffect } from "react"
 export default function Home() {
     const [data, setData] = useState(null)
     const [isLoading, setLoading] = useState(true)
-    const [values, setValues] = useState({ price: 1 })
+    const [values, setValues] = useState({
+        price: 1,
+        time: 1,
+        size: 1,
+        islandTour: false,
+        landTour: false,
+        safari: false,
+        swimming: false,
+        running: false,
+        elephant: false,
+        snorkel: false,
+        yacht: false,
+        speedboat: false,
+        catamaran: false,
+        speedCatamaran: false,
+        transfer: false,
+        halalFood: false,
+        vegetarianFood: false,
+    })
 
     const handleChange = ({
         name,
         value,
     }: {
         name: string
-        value: number | number[]
+        value: number | number[] | boolean
     }) => {
         setValues((prevValues) => ({
             ...prevValues,
@@ -43,7 +61,7 @@ export default function Home() {
 
     return (
         <>
-            <Navbar handleChange={handleChange} />
+            <Navbar handleChange={handleChange} values={values} />
             <Main isLoading={isLoading} data={data} />
         </>
     )
