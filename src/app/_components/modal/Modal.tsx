@@ -14,14 +14,14 @@ export const Modal = ({
     handleChange,
     values,
     resetValues,
-    search,
+    handleSearchChange,
 }: {
     isOpen: boolean
     onClose: () => void
     handleChange: (args: { name: string; value: number | number[] }) => void
     values: any
     resetValues: () => void
-    search: () => void
+    handleSearchChange: () => void
 }) => {
     const convertMinsToHrsMins = (mins) => {
         let h = Math.floor(mins / 60)
@@ -123,6 +123,12 @@ export const Modal = ({
                         values={values}
                         names={obj1}
                     />
+                    <p className={styles.title}>Activity</p>
+                    <SelectBoxes
+                        handleChange={handleChange}
+                        values={values}
+                        names={obj2}
+                    />
 
                     <div className={styles.modalInputContainer}>
                         <p className={styles.title}>Price</p>
@@ -176,13 +182,13 @@ export const Modal = ({
                     <SelectBoxes
                         handleChange={handleChange}
                         values={values}
-                        names={obj2}
+                        names={obj3}
                     />
                     <p className={styles.title}>Features</p>
                     <SelectBoxes
                         handleChange={handleChange}
                         values={values}
-                        names={obj3}
+                        names={obj4}
                     />
                 </div>
                 <div className="flex flex-row justify-between items-center mt-4">
@@ -190,7 +196,7 @@ export const Modal = ({
                     <CustomButton
                         className="ml-auto"
                         text="Search"
-                        onClick={search}
+                        onClick={handleSearchChange}
                     />
                 </div>
             </div>

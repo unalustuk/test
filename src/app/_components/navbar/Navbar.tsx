@@ -7,10 +7,12 @@ export default function Navbar({
     handleChange,
     values,
     resetValues,
+    handleSearchChange,
 }: {
     handleChange: (args: { name: string; value: number | number[] }) => void
     values: any
     resetValues: () => void
+    handleSearchChange: () => void
 }) {
     const [isModalOpen, setIsModelOpen] = useState(false)
 
@@ -44,6 +46,7 @@ export default function Navbar({
                 handleChange={handleChange}
                 values={values}
                 resetValues={resetValues}
+                handleSearchChange={handleSearchChange}
             />
         </div>
     )
