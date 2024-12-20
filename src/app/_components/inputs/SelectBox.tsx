@@ -21,7 +21,7 @@ export const SelectBox = ({
     }
     return (
         <div className={styles.box} style={bgc} onClick={onClickHandler}>
-            {text}123123
+            {text}
         </div>
     )
 }

@@ -6,9 +6,11 @@ import { Modal } from "../modal/Modal"
 export default function Navbar({
     handleChange,
     values,
+    resetValues,
 }: {
     handleChange: (args: { name: string; value: number | number[] }) => void
     values: any
+    resetValues: () => void
 }) {
     const [isModalOpen, setIsModelOpen] = useState(false)
 
@@ -41,6 +43,7 @@ export default function Navbar({
                 onClose={onClose}
                 handleChange={handleChange}
                 values={values}
+                resetValues={resetValues}
             />
         </div>
     )

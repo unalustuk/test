@@ -5,17 +5,23 @@ import xUrl from "../../../../public/_assets/x-solid.svg?url"
 import { Slider } from "@mui/base/Slider"
 import CustomSlider from "../inputs/CustomSlider"
 import { SelectBox } from "../inputs/SelectBox"
+import { SelectBoxes } from "./selectBoxes/SelectBoxes"
+import CustomButton from "../inputs/CustomButton"
 
 export const Modal = ({
     isOpen,
     onClose,
     handleChange,
     values,
+    resetValues,
+    search,
 }: {
     isOpen: boolean
     onClose: () => void
     handleChange: (args: { name: string; value: number | number[] }) => void
     values: any
+    resetValues: () => void
+    search: () => void
 }) => {
     const convertMinsToHrsMins = (mins) => {
         let h = Math.floor(mins / 60)
@@ -27,6 +33,73 @@ export const Modal = ({
 
         return `${h}:${m}`
     }
+
+    const obj1 = [
+        {
+            name: "islandTour",
+            text: "Island Tour",
+        },
+        {
+            name: "landTour",
+            text: "Land Tour",
+        },
+        {
+            name: "safari",
+            text: "Safari",
+        },
+    ]
+
+    const obj2 = [
+        {
+            name: "swimming",
+            text: "Swimming",
+        },
+        {
+            name: "running",
+            text: "Running",
+        },
+        {
+            name: "elephant",
+            text: "Elephant",
+        },
+        {
+            name: "snorkel",
+            text: "Snorkel",
+        },
+    ]
+    const obj3 = [
+        {
+            name: "yacht",
+            text: "Yacht",
+        },
+        {
+            name: "speedboat",
+            text: "Speedboat",
+        },
+        {
+            name: "catamaran",
+            text: "Catamaran",
+        },
+        {
+            name: "speedCatamaran",
+            text: "Speed Catamaran",
+        },
+    ]
+
+    const obj4 = [
+        {
+            name: "transfer",
+            text: "Transfer",
+        },
+        {
+            name: "halalFood",
+            text: "Halal Food",
+        },
+        {
+            name: "vegetarianFood",
+            text: "Vegetarian Food",
+        },
+    ]
 
     if (!isOpen) return null
 
@@ -44,11 +117,13 @@ export const Modal = ({
                 </div>
 
                 <div className={styles.modalInputsContainer}>
-                    <SelectBox
-                        name="safari"
-                        value={values.safari}
+                    <p className={styles.title}>Theme</p>
+                    <SelectBoxes
                         handleChange={handleChange}
+                        values={values}
+                        names={obj1}
                     />
+
                     <div className={styles.modalInputContainer}>
                         <p className={styles.title}>Price</p>
                         <div className={styles.inputBottom}>
@@ -97,6 +172,26 @@ export const Modal = ({
                             </div>
                         </div>
                     </div>
+                    <p className={styles.title}>Vehicle</p>
+                    <SelectBoxes
+                        handleChange={handleChange}
+                        values={values}
+                        names={obj2}
+                    />
+                    <p className={styles.title}>Features</p>
+                    <SelectBoxes
+                        handleChange={handleChange}
+                        values={values}
+                        names={obj3}
+                    />
+                </div>
+                <div className="flex flex-row justify-between items-center mt-4">
+                    <CustomButton text="Reset" onClick={resetValues} />
+                    <CustomButton
+                        className="ml-auto"
+                        text="Search"
+                        onClick={search}
+                    />
                 </div>
             </div>
         </div>

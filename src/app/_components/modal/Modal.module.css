@@ -19,6 +19,7 @@
     border: 1px solid black;
     width: 80%;
     height: 90%;
+    overflow-y: scroll;
 }
 .modalTitle {
     color: white;
