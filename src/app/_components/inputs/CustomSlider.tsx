@@ -22,6 +22,7 @@ export default function CustomSlider({
                 min={1}
                 name={name}
                 defaultValue={1}
+                value={value}
                 onChange={handleSliderChange}
                 max={max}
             />

@@ -89,19 +89,36 @@ export default function Home() {
         let filtered = data?.filter((item: any) => {
             if (
                 values.price <= item.price.adultPrice &&
-                values.size <= item.routes[0].groupSize &&
-                ((values.safari && item.tourCategory.id === 2) ||
-                    (values.landTour && item.tourCategory.id === 1) ||
-                    (values.islandTour && item.tourCategory.id === 3)) &&
-                ((values.catamaran && item.vehicle.id == 5) ||
-                    (values.yacht && item.vehicle.id == 1) ||
-                    (values.speedCatamaran && item.vehicle.id == 6) ||
-                    (values.speedboat && item.vehicle.id == 7))
+                values.size <= item.routes[0].groupSize
             ) {
+                if (values.safari || values.landTour || values.islandTour) {
+                    if (
+                        (values.safari && item.tourCategory.id === 2) ||
+                        (values.landTour && item.tourCategory.id === 1) ||
+                        (values.islandTour && item.tourCategory.id === 3)
+                    ) {
+                        if (
+                            values.catamaran ||
+                            values.yacht ||
+                            values.speedCatamaran ||
+                            values.speedboat
+                        ) {
+                            if (
+                                (values.catamaran && item.vehicle.id === 5) ||
+                                (values.yacht && item.vehicle.id === 1) ||
+                                (values.speedCatamaran &&
+                                    item.vehicle.id === 3) ||
+                                (values.speedboat && item.vehicle.id === 4)
+                            ) {
+                                return item
+                            }
+                        }
+                        return item
+                    }
+                }
                 return item
-            } else {
-                null
             }
+            return null
         })
         console.log("filtered")
         console.log(filtered)

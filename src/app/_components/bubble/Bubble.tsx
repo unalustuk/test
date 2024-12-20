@@ -17,6 +17,7 @@ export const Bubble = ({ item }: { item: any }) => {
             <div className={styles.sideContainer}>
                 <p className={styles.text}>{item.description}</p>
                 <p className={styles.text}>{item.activityLocation.address}</p>
+                <p className={styles.text}>Category:{item.tourCategory.name}</p>
                 <p className={styles.text}>Vehicle:{item.vehicle.name}</p>
                 <p className={styles.text}>
                     Group Size: {item.routes[0].groupSize}
