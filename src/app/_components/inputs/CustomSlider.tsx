@@ -5,9 +5,11 @@ import clsx from "clsx"
 export default function CustomSlider({
     handleChange,
     name,
+    max,
 }: {
     handleChange: (args: { name: string; value: number | number[] }) => void
     name: string
+    max: number
 }) {
     const handleSliderChange = (event: Event, newValue: number | number[]) => {
         handleChange({ name, value: newValue })
@@ -15,10 +17,11 @@ export default function CustomSlider({
     return (
         <div>
             <Slider
+                min={1}
                 name={name}
                 defaultValue={1}
                 onChange={handleSliderChange}
-                max={999}
+                max={max}
             />
         </div>
     )

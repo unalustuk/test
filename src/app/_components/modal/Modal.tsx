@@ -29,7 +29,11 @@ export const Modal = ({
                     </div>
                 </div>
 
-                <CustomSlider name={"price"} handleChange={handleChange} />
+                <CustomSlider
+                    max={100}
+                    name={"price"}
+                    handleChange={handleChange}
+                />
             </div>
         </div>
     )
