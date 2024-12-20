@@ -2,13 +2,18 @@ import React from "react"
 import styles from "./Modal.module.css"
 import Image from "next/image"
 import xUrl from "../../../../public/_assets/x-solid.svg?url"
+import { Slider } from "@mui/base/Slider"
+import CustomSlider from "../inputs/CustomSlider"
+
 export const Modal = ({
     isOpen,
     onClose,
     children,
+    handleChange,
 }: {
     isOpen: boolean
     onClose: () => void
+    handleChange: (args: { name: string; value: number | number[] }) => void
 }) => {
     if (!isOpen) return null
 
@@ -23,6 +28,8 @@ export const Modal = ({
                         <Image alt="x" src={xUrl} width={12} height={12} />
                     </div>
                 </div>
+
+                <CustomSlider name={"price"} handleChange={handleChange} />
             </div>
         </div>
     )

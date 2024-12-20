@@ -3,7 +3,11 @@
 import Image from "next/image"
 import { useState } from "react"
 import { Modal } from "../modal/Modal"
-export default function Navbar() {
+export default function Navbar({
+    handleChange,
+}: {
+    handleChange: (args: { name: string; value: number | number[] }) => void
+}) {
     const [isModalOpen, setIsModelOpen] = useState(false)
 
     const handleClick = () => {
@@ -30,7 +34,11 @@ export default function Navbar() {
                 />
             </div>
 
-            <Modal isOpen={isModalOpen} onClose={onClose} />
+            <Modal
+                isOpen={isModalOpen}
+                onClose={onClose}
+                handleChange={handleChange}
+            />
         </div>
     )
 }

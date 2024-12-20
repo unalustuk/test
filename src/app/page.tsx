@@ -8,7 +8,21 @@ import { useState, useEffect } from "react"
 export default function Home() {
     const [data, setData] = useState(null)
     const [isLoading, setLoading] = useState(true)
+    const [values, setValues] = useState({ price: 1 })
 
+    const handleChange = ({
+        name,
+        value,
+    }: {
+        name: string
+        value: number | number[]
+    }) => {
+        setValues((prevValues) => ({
+            ...prevValues,
+            [name]: value,
+        }))
+    }
+    console.log(values)
     useEffect(() => {
         axios
             .get("https://beta.tripkolic.com/api/v1/product/task/tours")
@@ -29,7 +43,7 @@ export default function Home() {
 
     return (
         <>
-            <Navbar />
+            <Navbar handleChange={handleChange} />
             <Main isLoading={isLoading} data={data} />
         </>
     )
