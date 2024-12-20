@@ -5,7 +5,7 @@ export default function Main({
     data,
     isLoading,
 }: {
-    data: Tour[] | null
+    data: []
     isLoading: boolean
 }) {
     console.log(data)
@@ -14,7 +14,7 @@ export default function Main({
 
     return (
         <div className={styles.mainContainer}>
-            {data.map((item) => (
+            {data.map((item: any) => (
                 <Bubble key={item.id} item={item} />
             ))}
         </div>

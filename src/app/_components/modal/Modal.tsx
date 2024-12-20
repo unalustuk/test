@@ -23,7 +23,7 @@ export const Modal = ({
     resetValues: () => void
     handleSearchChange: () => void
 }) => {
-    const convertMinsToHrsMins = (mins) => {
+    const convertMinsToHrsMins = (mins: number): string => {
         let h = Math.floor(mins / 60)
         let m = Math.round(mins % 60)
         h = h < 10 ? "0" + h : h
