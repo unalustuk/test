@@ -6,7 +6,7 @@ import Main from "./_components/main/Main"
 import axios from "axios"
 import { useState, useEffect } from "react"
 export default function Home() {
-    const [data, setData] = useState([])
+    const [data, setData] = useState(null)
     const [isLoading, setLoading] = useState(true)
 
     const [values, setValues] = useState({
@@ -94,7 +94,7 @@ export default function Home() {
                 values={values}
                 resetValues={resetValues}
             />
-            <Main isLoading={isLoading} data={data} />
+            <Main isLoading={isLoading} data={data?.products} />
         </>
     )
 }
